@@ -1,0 +1,28 @@
+{
+  "version": "1.1",
+  "name": "Status Check",
+  "env": {
+    "host": "cht.swisstph-mis.ch/"
+  },
+      "steps": [
+        {
+          "name": "GET request",
+          "http": {
+            "auth": {
+              "basic": {
+                "username": "global_doc",
+                "password": "Password1"
+              }
+            },
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "url": "https://${{env.host}}",
+            "method": "GET",
+            "check": {
+              "status": "/^20/"
+            }
+          }
+        }
+      ]
+    }
